@@ -91,17 +91,15 @@ triangle-dev-skills/
 └── LICENSE
 ```
 
-## Flagship pilot
+## Built from real work
 
-[ReCity Network](https://recitynetwork.org) — a Durham-based social-impact hub
-with 85+ member organizations — is the flagship pilot context for these skills.
-ReCity is an **allied project** of Grupo Impact (we rebuilt and launched their
-public site), and their development lead has put audit-ready, verified impact
-data at the center of a new $5K–$50K+ corporate-partnership tier system. That
-real-world need — verified CSRD/ESG-grade impact reporting, Triangle funder
-intelligence, and bilingual outreach — is exactly what these three skills are
-shaped around. ReCity is named here as an allied-partner pilot context, not as a
-paying customer.
+These skills aren't theoretical. Their workflows were shaped by real engagements
+with Triangle-area nonprofit development teams wrestling with the same three
+problems: corporate partners demanding ESG-grade, *verifiable* impact data;
+funder research that has to be regional to be worth anything; and a fast-growing
+Latino donor base that English-only outreach never reaches. The plugin encodes
+what actually worked in that work — distilled into repeatable workflows. Every
+example shipped here uses anonymized organizations and synthetic figures.
 
 ## License
 
