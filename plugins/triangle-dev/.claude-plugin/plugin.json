@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "triangle-dev",
+  "displayName": "Triangle Dev Skills",
+  "version": "0.1.0",
+  "description": "Three wedge skills for nonprofit development teams in the Research Triangle (Durham · Raleigh · Chapel Hill · RTP, NC): audit-ready CSRD/ESG impact reporting, regional funder intelligence, and bilingual (EN/ES) donor appeals. All three read and write a shared knowledge base anchored by an org impact-brief loaded via a SessionStart hook.",
+  "author": {
+    "name": "Ronan Pinho",
+    "email": "ronan.pinho@gmail.com"
+  },
+  "homepage": "https://github.com/ronanpinho-ipt/triangle-dev-skills",
+  "repository": "https://github.com/ronanpinho-ipt/triangle-dev-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "nonprofit",
+    "fundraising",
+    "impact-report",
+    "csrd",
+    "esg",
+    "gri",
+    "sasb",
+    "funder-research",
+    "research-triangle",
+    "north-carolina",
+    "bilingual",
+    "spanish"
+  ],
+  "skills": [
+    "./skills/impact-report-builder",
+    "./skills/triangle-funder-intel",
+    "./skills/bilingual-appeal-engine"
+  ],
+  "hooks": "./hooks/hooks.json"
+}

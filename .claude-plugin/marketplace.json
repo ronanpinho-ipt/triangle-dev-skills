@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "triangle-dev-skills",
+  "owner": {
+    "name": "Ronan Pinho",
+    "email": "ronan.pinho@gmail.com"
+  },
+  "metadata": {
+    "description": "Niche Agent Skills for nonprofit development teams in the Research Triangle (Durham · Raleigh · Chapel Hill · RTP, NC): audit-ready CSRD/ESG impact reporting, Triangle-specific funder intelligence, and bilingual (EN/ES) donor appeals.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "triangle-dev",
+      "source": "./plugins/triangle-dev",
+      "description": "Three wedge skills for Triangle-area nonprofit development: impact-report-builder (audit-ready CSRD/ESG/GRI/SASB outcomes), triangle-funder-intel (regional prospect research), and bilingual-appeal-engine (EN/ES cultural transcreation). Reads/writes a shared knowledge base seeded by a SessionStart org-brief hook.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ronan Pinho",
+        "email": "ronan.pinho@gmail.com"
+      },
+      "license": "Apache-2.0",
+      "category": "nonprofit",
+      "keywords": [
+        "nonprofit",
+        "fundraising",
+        "grant-writing",
+        "impact-report",
+        "csrd",
+        "esg",
+        "gri",
+        "sasb",
+        "funder-research",
+        "prospect-research",
+        "research-triangle",
+        "north-carolina",
+        "bilingual",
+        "spanish",
+        "donor-stewardship"
+      ]
+    }
+  ]
+}
