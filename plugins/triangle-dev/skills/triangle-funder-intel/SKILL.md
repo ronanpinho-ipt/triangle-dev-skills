@@ -75,6 +75,16 @@ Examples:
 5. **Outputs are send-ready, not rough drafts.** A development lead should be able
    to paste the shortlist into a board memo or a moves-management tracker without
    rewriting it.
+6. **Never assert a fetch you didn't perform (provenance integrity).** A source URL
+   and a fetch date may appear in the output ONLY if a real tool call (Firecrawl
+   search / scrape / extract, or an equivalent connector) actually returned that
+   URL in this session. Do not reconstruct plausible-looking URLs from memory, and
+   never attach a fetch date to a result you did not fetch. If Firecrawl is
+   unavailable, or you did not actually run a search, say so explicitly and route
+   every candidate to **Needs verification with NO URL and NO date**. A funder name
+   you recall from training but did not verify this session is an *unsourced lead*,
+   labeled as such — it is never a cited row and never gets a fetch date. A
+   fabricated citation is treated as severely as a fabricated funder.
 
 ## Workflow steps
 

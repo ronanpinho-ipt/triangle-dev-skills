@@ -69,6 +69,15 @@ scrutiny.
    with its derivation shown, and it is also listed in Data Gaps.
 4. **Traceability over polish.** A defensible report with gaps clearly marked is
    worth more to a partner than a beautiful report that can't survive an audit.
+5. **Labels are not entities.** A metric key or column label (e.g. `redine_meals`,
+   `jobs_supported`) names a *measure* — not a verified program, project, or
+   organization. Never expand a label into a proper noun: do not turn
+   `redine_meals` into "the Redine program" or "the REDINE initiative". Report the
+   measure literally (e.g. "5,600 meals (`redine_meals`)") and attribute it to a
+   named program ONLY if that program name appears explicitly in the data or the
+   org brief. Otherwise tag `<VERIFY: program/initiative name behind metric
+   redine_meals>`. Inventing the entity a real number belongs to is fabrication
+   just as much as inventing the number.
 
 ## How to invoke
 
