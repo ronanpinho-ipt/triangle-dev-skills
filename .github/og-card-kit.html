@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1280px;height:640px;overflow:hidden}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    background:#070b12;color:#e9eef7;position:relative}
+  body::before{content:"";position:absolute;inset:-20%;
+    background:
+      radial-gradient(38% 50% at 16% 20%,rgba(46,230,214,.20),transparent 60%),
+      radial-gradient(42% 55% at 86% 14%,rgba(139,124,246,.22),transparent 60%),
+      radial-gradient(46% 50% at 70% 92%,rgba(78,168,255,.16),transparent 60%);
+    filter:blur(14px)}
+  body::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(120% 80% at 50% -10%,transparent 45%,rgba(0,0,0,.45))}
+  .pad{position:relative;z-index:2;padding:62px 70px;height:100%;display:flex;flex-direction:column}
+  .kick{display:inline-flex;align-items:center;gap:10px;font-size:15px;letter-spacing:.22em;
+    text-transform:uppercase;color:#2ee6d6;font-weight:600}
+  .dot{width:9px;height:9px;border-radius:50%;background:#2ee6d6;box-shadow:0 0 14px #2ee6d6}
+  h1{font-size:82px;line-height:.98;font-weight:800;letter-spacing:-.02em;margin:26px 0 0}
+  h1 .g{background:linear-gradient(100deg,#2ee6d6,#8b7cf6 72%);-webkit-background-clip:text;
+    background-clip:text;-webkit-text-fill-color:transparent}
+  .tag{font-size:25px;color:#aeb9ca;margin-top:22px;max-width:1000px;line-height:1.4}
+  .tag b{color:#fff;font-weight:600}
+  .chips{display:flex;gap:14px;margin-top:auto}
+  .chip{flex:1;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+    border-left:3px solid var(--c);border-radius:16px;padding:20px 22px;backdrop-filter:blur(8px)}
+  .chip .t{font-size:20px;font-weight:700;color:#fff}
+  .chip .d{font-size:14.5px;color:#8a97ac;margin-top:5px;line-height:1.35}
+  .foot{display:flex;justify-content:space-between;align-items:center;margin-top:30px;
+    font-size:16px;color:#5f6b7e}
+  .foot .repo{color:#aeb9ca;font-weight:600}
+  .foot .zf{color:#2ee6d6;font-weight:600;letter-spacing:.04em}
+</style></head><body>
+  <div class="pad">
+    <span class="kick"><span class="dot"></span>Free for Triangle nonprofits · Agent Skills</span>
+    <h1>Triangle <span class="g">Builder Kit</span></h1>
+    <div class="tag">A free, growing kit of AI building blocks for NC Research Triangle nonprofits. First release —
+      <b>audit-ready impact reporting</b>, <b>regional funder intelligence</b>, and <b>bilingual EN/ES appeals</b>.</div>
+    <div class="chips">
+      <div class="chip" style="--c:#2ee6d6"><div class="t">impact-report-builder</div><div class="d">CSRD/ESG · GRI/SASB/SDOH · every figure source-traced</div></div>
+      <div class="chip" style="--c:#8b7cf6"><div class="t">triangle-funder-intel</div><div class="d">Regional, sourced funder prospecting — never fabricated</div></div>
+      <div class="chip" style="--c:#4ea8ff"><div class="t">bilingual-appeal-engine</div><div class="d">EN ⇄ ES cultural transcreation with parity QA</div></div>
+    </div>
+    <div class="foot">
+      <span class="repo">kit.isonew.digital</span>
+      <span><span class="zf">ZERO FABRICATION</span> &nbsp;·&nbsp; Apache-2.0</span>
+    </div>
+  </div>
+</body></html>
