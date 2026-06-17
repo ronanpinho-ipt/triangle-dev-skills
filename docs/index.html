@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triangle Dev Skills — Claude Code plugin for NC nonprofit teams</title>
+<meta name="description" content="Three wedge Agent Skills for nonprofit development teams in NC's Research Triangle: audit-ready CSRD/ESG impact reporting, regional funder intelligence, and bilingual EN/ES appeals.">
+<meta property="og:title" content="Triangle Dev Skills">
+<meta property="og:description" content="Audit-ready impact reporting · regional funder intel · bilingual EN/ES — Claude Code plugin for NC Research Triangle nonprofits.">
+<meta property="og:image" content="https://ronanpinho-ipt.github.io/triangle-dev-skills/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{--bg:#070b12;--panel:rgba(255,255,255,.045);--line:rgba(255,255,255,.09);
+    --txt:#e9eef7;--muted:#8a97ac;--faint:#5f6b7e;--cyan:#2ee6d6;--violet:#8b7cf6;--blue:#4ea8ff;--green:#34d399;--amber:#fbbf24}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:-30%;z-index:-2;
+    background:radial-gradient(40% 50% at 18% 16%,rgba(46,230,214,.15),transparent 60%),
+      radial-gradient(45% 55% at 84% 12%,rgba(139,124,246,.17),transparent 60%),
+      radial-gradient(50% 50% at 66% 90%,rgba(78,168,255,.12),transparent 60%);filter:blur(18px);animation:drift 24s ease-in-out infinite alternate}
+  @keyframes drift{50%{transform:translate3d(-3%,2%,0) scale(1.05)}100%{transform:translate3d(3%,-2%,0) scale(1.03)}}
+  .wrap{max-width:1000px;margin:0 auto;padding:70px 26px 90px}
+  .kick{display:inline-flex;align-items:center;gap:9px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.4}}
+  h1{font-size:clamp(40px,7vw,76px);font-weight:800;letter-spacing:-.025em;line-height:1;margin:22px 0 0}
+  h1 .g{background:linear-gradient(100deg,var(--cyan),var(--violet) 72%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{font-size:clamp(17px,2.4vw,21px);color:#aeb9ca;margin:24px 0 0;max-width:760px}
+  .lede b{color:#fff;font-weight:600}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:600;text-decoration:none;
+    padding:13px 22px;border-radius:12px;transition:.2s}
+  .btn.p{background:linear-gradient(100deg,var(--cyan),var(--blue));color:#04121a;box-shadow:0 0 30px rgba(46,230,214,.3)}
+  .btn.p:hover{transform:translateY(-2px)}
+  .btn.s{background:var(--panel);border:1px solid var(--line);color:var(--txt)}
+  .btn.s:hover{border-color:rgba(46,230,214,.4)}
+  .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+  .pill{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:#cfe}
+  section{margin-top:64px}
+  h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:18px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--c);border-radius:16px;padding:24px;backdrop-filter:blur(8px);transition:.25s}
+  .card:hover{transform:translateY(-3px);background:rgba(255,255,255,.07)}
+  .card h3{font-size:18px;font-family:ui-monospace,Menlo,monospace;color:#fff;margin-bottom:8px}
+  .card p{font-size:14px;color:var(--muted)}
+  .shot{margin-top:22px;border-radius:16px;border:1px solid var(--line);width:100%;display:block;box-shadow:0 24px 70px rgba(0,0,0,.5)}
+  pre{background:#0a0f18;border:1px solid var(--line);border-radius:14px;padding:20px 22px;overflow-x:auto;
+    font-family:ui-monospace,Menlo,monospace;font-size:14px;color:#cfd8e6;margin-top:8px}
+  pre .c{color:var(--cyan)}
+  footer{margin-top:74px;padding-top:26px;border-top:1px solid var(--line);color:var(--faint);font-size:13px;
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--cyan)}
+  .zf{color:var(--green);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kick"><span class="dot"></span>Claude Code Plugin · Agent Skills · Apache-2.0</span>
+  <h1>Triangle <span class="g">Dev Skills</span></h1>
+  <p class="lede">Three wedge skills for nonprofit development teams in North Carolina's Research Triangle —
+    <b>audit-ready impact reporting</b>, <b>regional funder intelligence</b>, and <b>bilingual EN/ES appeals</b>.
+    One shared knowledge base. One org brief auto-loaded into every session.</p>
+  <div class="cta">
+    <a class="btn p" href="https://github.com/ronanpinho-ipt/triangle-dev-skills">View on GitHub →</a>
+    <a class="btn s" href="sample-impact-briefing.html">See a sample briefing</a>
+  </div>
+  <div class="pills">
+    <span class="pill">GRI · SASB · TCFD · SDOH</span><span class="pill">CSRD / ESG-ready</span>
+    <span class="pill">RTP corporate · NC foundations</span><span class="pill">EN ⇄ ES transcreation</span>
+    <span class="pill">Zero fabrication</span>
+  </div>
+
+  <section>
+    <h2>The three skills</h2>
+    <div class="cards">
+      <div class="card" style="--c:var(--cyan)"><h3>impact-report-builder</h3><p>Normalizes program metrics to GRI/SASB/TCFD/SDOH and drafts an audit-ready partner briefing. Every figure traces to a source row or is flagged in Data Gaps.</p></div>
+      <div class="card" style="--c:var(--violet)"><h3>triangle-funder-intel</h3><p>Scores your org against a verified Triangle/NC funder list and researches new prospects live, with sources. Never invents a funder.</p></div>
+      <div class="card" style="--c:var(--blue)"><h3>bilingual-appeal-engine</h3><p>Transcreates appeals between English and Spanish — cultural transcreation, not literal translation — with a parity-QA pass.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>See it in action</h2>
+    <p style="color:var(--muted);max-width:760px">Six raw member metrics → a board-grade, framework-mapped, source-traced partner briefing:</p>
+    <img class="shot" src="demo.gif" alt="impact-report-builder running end to end" style="margin-bottom:18px">
+    <a href="sample-impact-briefing.html"><img class="shot" src="sample-impact-briefing.png" alt="Sample audit-ready impact briefing"></a>
+  </section>
+
+  <section>
+    <h2>Install</h2>
+    <pre><span class="c">/plugin</span> marketplace add ronanpinho-ipt/triangle-dev-skills
+<span class="c">/plugin</span> install triangle-dev@triangle-dev-skills</pre>
+  </section>
+
+  <footer>
+    <span>Built from real work with Triangle-area nonprofit teams · examples use synthetic data.</span>
+    <span><a href="https://github.com/ronanpinho-ipt/triangle-dev-skills">github.com/ronanpinho-ipt/triangle-dev-skills</a> · <span class="zf">ZERO FABRICATION</span></span>
+  </footer>
+</div>
+</body>
+</html>

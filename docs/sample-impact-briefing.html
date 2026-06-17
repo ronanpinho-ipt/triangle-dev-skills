@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bull City Impact Hub — Q2-2026 Impact Briefing (sample)</title>
+<style>
+  :root{
+    --bg:#070b12; --panel:rgba(255,255,255,.045); --line:rgba(255,255,255,.09);
+    --txt:#e9eef7; --muted:#8a97ac; --faint:#5f6b7e;
+    --cyan:#2ee6d6; --violet:#8b7cf6; --blue:#4ea8ff; --rose:#fb7185;
+    --green:#34d399; --amber:#fbbf24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg); color:var(--txt); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden; position:relative;
+  }
+  /* animated aurora background */
+  body::before{
+    content:""; position:fixed; inset:-30%; z-index:-2;
+    background:
+      radial-gradient(40% 50% at 20% 18%, rgba(46,230,214,.16), transparent 60%),
+      radial-gradient(45% 55% at 82% 12%, rgba(139,124,246,.18), transparent 60%),
+      radial-gradient(50% 50% at 65% 88%, rgba(78,168,255,.13), transparent 60%);
+    filter:blur(20px); animation:drift 22s ease-in-out infinite alternate;
+  }
+  body::after{content:"";position:fixed;inset:0;z-index:-1;
+    background:radial-gradient(120% 80% at 50% -10%, transparent 40%, rgba(0,0,0,.5));}
+  @keyframes drift{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    50%{transform:translate3d(-3%,2%,0) scale(1.06)}
+    100%{transform:translate3d(3%,-2%,0) scale(1.03)}
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:56px 28px 80px}
+  /* header */
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--cyan);border:1px solid rgba(46,230,214,.4);
+    border-radius:999px;padding:6px 14px;background:rgba(46,230,214,.06);
+    box-shadow:0 0 22px rgba(46,230,214,.25)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);
+    animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  h1{font-size:clamp(30px,5vw,50px);line-height:1.05;margin:22px 0 6px;font-weight:800;letter-spacing:-.02em}
+  h1 .grad{background:linear-gradient(100deg,var(--cyan),var(--violet) 70%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .meta{color:var(--muted);font-size:15px;margin-top:10px}
+  .meta b{color:var(--txt);font-weight:600}
+  .tierflag{margin-top:16px;font-size:13.5px;color:var(--amber);background:rgba(251,191,36,.08);
+    border:1px solid rgba(251,191,36,.3);border-radius:10px;padding:10px 14px;display:inline-block}
+  /* stat tiles */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:38px 0}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 18px;
+    backdrop-filter:blur(8px);position:relative;overflow:hidden;transition:.3s}
+  .stat:hover{transform:translateY(-3px);border-color:rgba(46,230,214,.45);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;
+    background:linear-gradient(120deg,#fff,#bfe9e4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .stat .src{position:absolute;top:12px;right:13px;font:600 10px ui-monospace,Menlo,monospace;
+    color:var(--cyan);opacity:.8}
+  section{margin:42px 0}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  h2{font-size:23px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;
+    backdrop-filter:blur(8px)}
+  .lede{font-size:16px;color:#d4dcea}
+  .lede b{color:#fff}
+  /* SDOH grid */
+  .sdoh{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+  .bucket{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--c,#4ea8ff);
+    border-radius:14px;padding:18px 20px;transition:.25s}
+  .bucket:hover{background:rgba(255,255,255,.07)}
+  .bucket h3{font-size:14.5px;font-weight:700;margin-bottom:8px;color:#fff}
+  .bucket p{font-size:13.5px;color:var(--muted)}
+  .bucket .mono{font:600 11px ui-monospace,monospace;color:var(--c);opacity:.9}
+  .bucket.empty{opacity:.55;border-left-color:var(--faint)}
+  /* table */
+  .grid-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+  th{text-align:left;padding:13px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--faint);border-bottom:1px solid var(--line);font-weight:600}
+  td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:#cfd8e6}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(46,230,214,.04)}
+  .src-id{font:600 11px ui-monospace,monospace;color:var(--cyan);background:rgba(46,230,214,.08);
+    padding:2px 7px;border-radius:6px}
+  .raw{font-weight:700;color:#fff}
+  .ok{color:var(--green);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .fw{font:600 11px ui-monospace,monospace;color:var(--violet)}
+  /* gaps */
+  .gaps{display:grid;gap:10px}
+  .gap{display:flex;gap:12px;align-items:flex-start;background:rgba(251,191,36,.055);
+    border:1px solid rgba(251,191,36,.22);border-radius:12px;padding:14px 16px}
+  .gap .ic{color:var(--amber);font-size:15px;line-height:1.4;flex:none}
+  .gap b{color:#ffe9b0;font-weight:650}
+  .gap span{color:var(--muted);font-size:13.5px}
+  .verify{font:600 11px ui-monospace,monospace;color:var(--amber);background:rgba(251,191,36,.1);
+    padding:1px 6px;border-radius:5px}
+  /* framework pills */
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .pill{font-size:12.5px;font-weight:600;padding:8px 15px;border-radius:999px;
+    border:1px solid var(--line);background:var(--panel);color:#cfe;backdrop-filter:blur(6px)}
+  .pill.on{border-color:rgba(46,230,214,.45);color:var(--cyan);box-shadow:0 0 18px rgba(46,230,214,.2)}
+  .pill.off{color:var(--faint);text-decoration:line-through;opacity:.6}
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
+    color:var(--faint);font-size:12.5px}
+  footer .eng{color:var(--muted)}
+  footer .eng b{color:var(--cyan)}
+  .zf{font-size:11.5px;color:var(--faint);max-width:540px}
+  .sample-tag{position:fixed;top:14px;right:14px;z-index:5;font:700 10px ui-monospace,monospace;
+    letter-spacing:.12em;color:var(--amber);border:1px solid rgba(251,191,36,.4);
+    background:rgba(20,16,4,.7);padding:6px 11px;border-radius:8px;backdrop-filter:blur(6px)}
+</style>
+</head>
+<body>
+<div class="sample-tag">ILLUSTRATIVE SAMPLE · DEMO DATA</div>
+<div class="wrap">
+
+  <span class="badge"><span class="dot"></span>Audit-ready · source-traced</span>
+  <h1>Bull City Impact Hub<br><span class="grad">Quarterly Impact Briefing</span></h1>
+  <div class="meta">
+    Prepared for <b>Cardinal Therapeutics</b> — Strategic Partner &nbsp;·&nbsp; Reporting period <b>Q2-2026</b><br>
+    Generated by the <b>impact-report-builder</b> skill — every figure traces to a source row or is flagged.
+  </div>
+  <div class="tierflag">⚑ $25,000 maps to the <b>Strategic</b> (~$25K) band — Founding Partner is $50K+. Flagged, not silently relabeled.</div>
+
+  <div class="stats">
+    <div class="stat"><span class="src">R1</span><div class="n">1,240</div><div class="l">members served</div></div>
+    <div class="stat"><span class="src">R3</span><div class="n">5,600</div><div class="l">meals distributed</div></div>
+    <div class="stat"><span class="src">R4</span><div class="n">210</div><div class="l">trained · digital skills</div></div>
+    <div class="stat"><span class="src">R5</span><div class="n">64</div><div class="l">reentry participants</div></div>
+    <div class="stat"><span class="src">R2</span><div class="n">38</div><div class="l">jobs supported</div></div>
+    <div class="stat"><span class="src">R6</span><div class="n">12</div><div class="l">workshops held</div></div>
+  </div>
+
+  <section>
+    <div class="kicker">01 · Executive summary</div>
+    <div class="card lede">
+      In Q2-2026, Bull City Impact Hub served <b>1,240 members</b> across the five Social Determinants of Health.
+      Verified outcomes include <b>38 jobs supported</b>, <b>210 people trained</b> in digital skills,
+      <b>64 reentry participants</b> engaged, and <b>5,600 meals</b> distributed — delivered across <b>12 workshops</b>.
+      Every number here traces to a source row in the Data Appendix; anything not yet available is named in Data Gaps,
+      never estimated into existence.
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">02 · Impact by Social Determinant of Health</div>
+    <div class="sdoh">
+      <div class="bucket" style="--c:var(--cyan)">
+        <h3>Economic Stability</h3>
+        <p>38 jobs supported <span class="mono">R2</span> · 5,600 meals / food security <span class="mono">R3</span></p>
+      </div>
+      <div class="bucket" style="--c:var(--violet)">
+        <h3>Education Access &amp; Quality</h3>
+        <p>210 trained in digital skills <span class="mono">R4</span> · 12 workshops <span class="mono">R6</span></p>
+      </div>
+      <div class="bucket" style="--c:var(--blue)">
+        <h3>Social &amp; Community Context</h3>
+        <p>1,240 members served <span class="mono">R1</span> · 64 reentry participants <span class="mono">R5</span></p>
+      </div>
+      <div class="bucket empty">
+        <h3>Health Care Access &amp; Quality</h3>
+        <p>No verified data this period → see Data Gaps</p>
+      </div>
+      <div class="bucket empty">
+        <h3>Neighborhood &amp; Built Environment</h3>
+        <p>No verified data this period → see Data Gaps</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">03 · Data Appendix — the audit-ready grid</div>
+    <h2>Trace any headline number back to its source row</h2>
+    <p style="color:var(--muted);font-size:14px;margin:6px 0 16px">This is the moat: a partner's ESG/CSR team can audit every figure.</p>
+    <div class="grid-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Metric</th><th>Raw</th><th>GRI</th><th>SASB</th><th>TCFD</th><th>SDOH bucket</th><th>Source</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>members served</td><td class="raw">1,240</td><td class="fw">413</td><td>Community Relations</td><td>—</td><td>Social &amp; Community Context</td><td><span class="src-id">R1</span></td><td class="ok">verified</td></tr>
+          <tr><td>2</td><td>jobs supported</td><td class="raw">38</td><td class="fw">413; 203</td><td>Human Capital</td><td>—</td><td>Economic Stability</td><td><span class="src-id">R2</span></td><td class="ok">verified</td></tr>
+          <tr><td>3</td><td>meals distributed <code style="color:var(--faint);font-size:11px">(redine_meals)</code></td><td class="raw">5,600</td><td class="fw">413</td><td>Community Relations</td><td>—</td><td>Economic Stability · food security</td><td><span class="src-id">R3</span></td><td class="ok">verified</td></tr>
+          <tr><td>4</td><td>trained · digital skills</td><td class="raw">210</td><td class="fw">404</td><td>Human Capital</td><td>—</td><td>Education Access &amp; Quality</td><td><span class="src-id">R4</span></td><td class="ok">verified</td></tr>
+          <tr><td>5</td><td>reentry participants</td><td class="raw">64</td><td class="fw">413; 406</td><td>Community Relations</td><td>—</td><td>Social &amp; Community Context</td><td><span class="src-id">R5</span></td><td class="ok">verified</td></tr>
+          <tr><td>6</td><td>workshops held <span style="color:var(--faint);font-size:11px">(activity)</span></td><td class="raw">12</td><td class="fw">404</td><td>—</td><td>—</td><td>Education Access &amp; Quality</td><td><span class="src-id">R6</span></td><td class="ok">verified</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">04 · Framework alignment</div>
+    <h2>Standards the partner's ESG team recognizes</h2>
+    <div class="pills">
+      <span class="pill on">GRI 413 · 404 · 203 · 406</span>
+      <span class="pill on">SASB · Human Capital / Community Relations</span>
+      <span class="pill off">TCFD · no climate metrics this period</span>
+      <span class="pill on">SDOH · 5 domains</span>
+      <span class="pill on">GRI ⇄ ESRS interoperable (CSRD-ready)</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">05 · Data Gaps — surfaced, never buried</div>
+    <h2>The honesty layer that makes the rest trustworthy</h2>
+    <div class="gaps" style="margin-top:16px">
+      <div class="gap"><span class="ic">▲</span><span><b>Program name behind <code style="color:#ffe9b0">redine_meals</code></b> — a metric label is not a verified program. Not expanded into a proper noun. <span class="verify">&lt;VERIFY: confirm program/initiative name&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Demographic breakdown</b> (race/gender/income · GRI 405) — not reported this period. <span class="verify">&lt;VERIFY: add demographic fields to intake&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Follow-on funding raised by members</b> — not in provided data. <span class="verify">&lt;VERIFY: member outcomes survey&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Q1-2026 baselines</b> (members, jobs) — needed for period-over-period trend. <span class="verify">&lt;VERIFY: prior-period roster + survey&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Possible double-count</b> — 1,240 members may overlap trained/reentry beneficiaries. <span class="verify">&lt;VERIFY: de-duplicate unique beneficiaries&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Sponsored-area attribution + tier deliverables</b> — partner-fund attribution not isolable from aggregate. <span class="verify">&lt;VERIFY: signed partnership agreement&gt;</span></span></div>
+      <div class="gap"><span class="ic">▲</span><span><b>Beneficiary story consent</b> — no anecdote shipped without it. <span class="verify">&lt;VERIFY: real, consented, source-backed story&gt;</span></span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="eng">Generated by <b>impact-report-builder</b> · Triangle-Dev Skills · github.com/ronanpinho-ipt/triangle-dev-skills</span>
+    <span class="zf">ZERO FABRICATION: all six figures are user-provided inputs in this demo; every value not provided is shown as a <span class="verify">&lt;VERIFY&gt;</span> gap, never invented. Org &amp; partner names are illustrative.</span>
+  </footer>
+
+</div>
+</body>
+</html>
